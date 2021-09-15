@@ -27,4 +27,27 @@
 <script src="https://cpwebassets.codepen.io/assets/common/stopExecutionOnTimeout-1b93190375e9ccc259df3a57c1abc0e64599724ae30d7ea4c6877eb615f89387.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.min.js"></script>
   <script  src="https://cdpn.io/cp/internal/boomboom/pen.js?key=pen.js-71c38440-0e48-8656-3163-c715281d1e69" crossorigin></script>
+
+
+  <script>
+function setup() {
+	createCanvas(windowWidth, windowHeight, WEBGL);
+	specularMaterial(255);
+	noStroke();
+	angleMode(DEGREES);
+}
+function draw() {
+	background(0);
+	orbitControl();
+	t = frameCount;
+	rotateX(t);
+	rotateY(t);
+	pointLight(95, 95, 95, 500, 500, 1500);
+	torus(min(width / 4, height / 4), 10, 50, 24);
+	push();
+	translate(0, 0, 500 * sin(t) * cos(t));
+	sphere(min(width / 8, height / 8), 24, 24);
+	pop();
+}</script>
+
 </body>
